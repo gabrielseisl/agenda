@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar - Meu Dia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/login.css">
+</head>
+<body>
+  <div class="tela">
+    <aside class="lado-marca">
+      <div class="marca-conteudo">
+        <span class="marca">Meu Dia</span>
+        <h1>Organize a rotina e saiba se o dia cabe no tempo que você tem.</h1>
+        <p>Planeje atividades com horário, duração e prioridade, e acompanhe o que já foi concluído.</p>
+      </div>
+    </aside>
+
+    <main class="lado-form">
+      <div class="caixa">
+        <span class="marca marca-mobile">Meu Dia</span>
+
+        <div class="abas" role="tablist">
+          <button type="button" id="aba-entrar" class="aba ativa" role="tab">Entrar</button>
+          <button type="button" id="aba-criar" class="aba" role="tab">Criar conta</button>
+        </div>
+
+        <h2 id="titulo">Acesse sua conta</h2>
+        <p id="subtitulo" class="subtitulo">Informe seu e-mail e senha para continuar.</p>
+
+        <form id="form" novalidate>
+          <label class="campo" id="campo-nome" hidden>
+            <span>Nome</span>
+            <input type="text" id="nome" maxlength="100" autocomplete="name">
+          </label>
+          <label class="campo">
+            <span>E-mail</span>
+            <input type="email" id="email" maxlength="150" autocomplete="email" required>
+          </label>
+          <label class="campo">
+            <span>Senha</span>
+            <div class="senha-linha">
+              <input type="password" id="senha" maxlength="128" autocomplete="current-password" required>
+              <button type="button" id="ver-senha" class="ver">Mostrar</button>
+            </div>
+          </label>
+          <label class="campo" id="campo-confirma" hidden>
+            <span>Confirmar senha</span>
+            <input type="password" id="confirma" maxlength="128" autocomplete="new-password">
+          </label>
+
+          <p id="erro" class="erro" role="alert" hidden></p>
+
+          <button type="submit" id="btn-enviar" class="btn">Entrar</button>
+        </form>
+
+        <p class="troca">
+          <span id="troca-texto">Ainda não tem conta?</span>
+          <button type="button" id="troca-link" class="link">Criar conta</button>
+        </p>
+      </div>
+    </main>
+  </div>
+  <script src="/static/login.js"></script>
+</body>
+</html>

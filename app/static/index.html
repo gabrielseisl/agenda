@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="verificando">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meu Dia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+  <style>html.verificando body { visibility: hidden; }</style>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="topo-conteudo">
+      <a class="marca" href="/">Meu Dia</a>
+      <div class="topo-direita">
+      <nav class="nav-data" aria-label="Navegação de datas">
+        <button id="btn-ontem" class="btn-nav" aria-label="Dia anterior">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <input type="date" id="data" aria-label="Escolher data">
+        <button id="btn-amanha" class="btn-nav" aria-label="Próximo dia">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button id="btn-hoje" class="btn-nav btn-hoje">Hoje</button>
+      </nav>
+      <div class="usuario">
+        <span id="usuario-nome" class="usuario-nome"></span>
+        <button id="btn-sair" class="btn-nav">Sair</button>
+      </div>
+    </div>
+    </div>
+  </header>
+
+  <section class="destaque">
+    <div class="destaque-conteudo">
+      <div class="dia">
+        <span id="dia-numero" class="dia-numero">--</span>
+        <div class="dia-texto">
+          <span id="dia-semana" class="dia-semana"></span>
+          <span id="dia-mes" class="dia-mes"></span>
+        </div>
+      </div>
+
+      <div class="resumo">
+        <div class="resumo-topo">
+          <h2>Tempo do dia</h2>
+          <label class="horas">
+            <span>Disponível</span>
+            <input type="number" id="horas" min="1" max="24" step="0.5" value="8">
+            <span>h</span>
+          </label>
+        </div>
+        <div class="barra"><div id="barra-preench" class="barra-preench"></div></div>
+        <dl class="numeros">
+          <div><dt>Planejado</dt><dd id="st-planejado">0min</dd></div>
+          <div><dt>Concluído</dt><dd id="st-feito">0min</dd></div>
+          <div><dt>Livre</dt><dd id="st-livre">0min</dd></div>
+        </dl>
+        <p id="aviso" class="aviso"></p>
+      </div>
+    </div>
+  </section>
+
+  <main class="conteudo">
+    <section class="agenda">
+      <div class="agenda-topo">
+        <h2>Agenda</h2>
+        <span id="contador" class="contador"></span>
+      </div>
+      <ul id="lista" class="lista"></ul>
+      <div id="vazio" class="vazio" hidden>
+        <p class="vazio-titulo">Dia livre por enquanto</p>
+        <p>Adicione a primeira atividade no formulário.</p>
+      </div>
+    </section>
+
+    <aside class="formulario">
+      <h2 id="titulo-form">Nova atividade</h2>
+      <form id="form" autocomplete="off">
+        <label class="campo">
+          <span>O que precisa ser feito</span>
+          <input type="text" id="titulo" placeholder="Ex.: Reunião com a equipe" maxlength="150" required>
+        </label>
+        <div class="duas-colunas">
+          <label class="campo">
+            <span>Horário</span>
+            <input type="time" id="horario">
+          </label>
+          <label class="campo">
+            <span>Duração (min)</span>
+            <input type="number" id="duracao" min="1" max="1440" value="30" required>
+          </label>
+        </div>
+        <label class="campo">
+          <span>Prioridade</span>
+          <select id="prioridade">
+            <option value="alta">Alta</option>
+            <option value="media" selected>Média</option>
+            <option value="baixa">Baixa</option>
+          </select>
+        </label>
+        <div class="acoes-form">
+          <button type="submit" id="btn-salvar" class="btn">Adicionar</button>
+          <button type="button" id="btn-cancelar" class="btn btn-claro" hidden>Cancelar</button>
+        </div>
+      </form>
+    </aside>
+  </main>
+
+  <div id="toast" class="toast" hidden></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
